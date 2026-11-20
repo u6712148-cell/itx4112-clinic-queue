@@ -14,7 +14,7 @@ document.querySelectorAll('.served-btn').forEach(function (btn) {
 // Listen for form submission
 form.addEventListener('submit', function (event) {
   // TODO 4: Prevent the form reload
-  // Stop the browser's default page refresh by adding: event.preventDefault();
+  event.preventDefault();
 
 
   const patientCode = codeInput.value.trim();
@@ -31,7 +31,7 @@ form.addEventListener('submit', function (event) {
   codeText.classList.add('code');
   // TODO 5: Create cards with textContent
   // Safely set codeText's text using .textContent (never .innerHTML!):
-  // codeText.textContent = ???;
+    codeText.textContent = patientCode;
 
 
   const serviceText = document.createElement('p');
@@ -45,7 +45,9 @@ form.addEventListener('submit', function (event) {
 
   // TODO 6: Remove a served queue card
   // Add a click listener to servedBtn that calls card.remove();
-  // servedBtn.addEventListener('click', function () { ... });
+    servedBtn.addEventListener('click', function () {
+    card.remove();
+  });
 
 
   // Assemble and append the card to #queue-list
